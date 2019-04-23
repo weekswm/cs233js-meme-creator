@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/LCC-CIT-Programming-CS233JS/lcc-cit-programming-cs233js-memecreator-weekswm#readme",
   "babel": {
-    "presets": [ "@babel/env"]
+    "presets": [
+      "@babel/env"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -26,8 +28,16 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
     "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.4.1",
+    "jquery": "^3.4.0"
   }
 }

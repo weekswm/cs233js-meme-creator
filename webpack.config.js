@@ -8,15 +8,16 @@ module.exports = {
 		filename: '[name].js',
     },
     module: {
-        rules: [
-            { 
+        rules: [	{ 
             test: /\.js$/,
             exclude: /(node_modules)/,
             use: { loader: 'babel-loader'}
-            }, 
-            { 
-            test: /\.css$/,  
-            use: [ 'style-loader', 'css-loader' ]
+            }, { 
+            test: /\.(less|css)$/, 
+            use: [ 'style-loader', 'css-loader', 'less-loader' ]		
+            },{  
+            test: /\.(svg|eot|ttf|woff|woff2)$/,  
+            loader: 'url-loader',  options: {    limit: 10000,    name: 'fonts/[name].[ext]'  }
             },
         ],
     }

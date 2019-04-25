@@ -61,12 +61,13 @@ class Memes {
   addEventListeners() {
     this.createMeme = this.createMeme.bind(this);
     this.downloadMeme = this.downloadMeme.bind(this);
-    //this.loadImage = this.loadImage.bind(this);
+    this.loadImage = this.loadImage.bind(this);
     this.resizeCanvas = this.resizeCanvas.bind(this);
     let inputNodes = [this.$topTextInput, this.$bottomTextInput];
     inputNodes.forEach(element => element.addEventListener('keyup', this.createMeme));
     inputNodes.forEach(element => element.addEventListener('change', this.createMeme));
     this.$downloadButton.addEventListener('click', this.downloadMeme);
+    this.$imageInput.addEventListener('change', this.loadImage);
   }    
 
   downloadMeme() {
@@ -88,10 +89,22 @@ class Memes {
   }
 
   loadImage() {
-
+    if (this.$imageInput.files && this.$imageInput.files[0]) {
+      let reader = new FileReader();
+      reader.onload = () => {
+        this.image = new Image();
+        this.image.onload = () => {
+          this.createMeme();
+        };
+        this.image.src = reader.result;
+      };
+      reader.readAsDataURL(this.$imageInput.files[0]);
+    }
   }
+
 }
-new Memes();
+
+window.onload = () => { new Memes();}
 
 /*  
 Create a class called Memes

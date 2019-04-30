@@ -3,5 +3,5 @@ import '../css/styles.css';
 import 'bootstrap';
 
 console.log('General JS File');
-console.log('Added a lint to general.js');
+console.log('Added a link to general.js');
 
